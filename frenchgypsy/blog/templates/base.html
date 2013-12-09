@@ -1,0 +1,18 @@
+<html>
+<style type ="text/css">
+body { color: #efd; background: #453; padding:0 5em; margin:0 }
+h1 { padding: 2em 1em; background: 675 }
+h2 { color: #bf8; border-top: 1px dotted #fff; margin-top: 2em }
+p { margin: 1em 0 }
+a:link {color:#FF0000;}      /* unvisited link */
+a:visited {color:#00FF00;}  /* visited link */
+a:hover {color:#FF00FF;}  /* mouse over link */
+a:active {color:#0000FF;}  /* selected link */
+</style>
+ {% url frenchgypsy.blog.views.archive as archiveUrl  %}
+<body>
+<h1><a href="{{ archiveUrl }}">  The Peach Grove</a></h1>
+{% block content %}
+{% endblock %}
+</body>
+</html>

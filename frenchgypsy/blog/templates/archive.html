@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %} 
+{% url frenchgypsy.blog.views.stats as statsUrl  %}
+{% url frenchgypsy.blog.views.archive as archiveUrl  %}
+{% url frenchgypsy.blog.views.atmosphere as recettearUrl  %}
+
+{% comment %} Links {% endcomment %}
+<a href="{{ statsUrl }}"> 
+	<h2> Check out some stock correlations </h2>
+</a>
+<a href="{{ recettearUrl }}"> 
+	<h2> Recettear!!</h2>
+</a>
+
+{% comment %} Content {% endcomment %}
+{% for post in posts %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.timestamp|date }}</p>
+<p> {{ post.body }}</p>
+{% endfor %}
+
+
+{% endblock %}
+
+
+

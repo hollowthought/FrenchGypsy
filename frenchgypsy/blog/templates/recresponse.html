@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %} 
+
+
+<p> Your Choice: </p>
+<p> {{ currentItem.name}} {{ currentItem.type}}</p>
+<p>Light: {{ currentItem.light}} Gaudy: {{ currentItem.gaudy}}</p>
+
+
+
+{% for i in items %} 
+<hr>
+<p> Layout options:  Light: {{ i.light}} Gaudy: {{ i.gaudy}}</p>
+<p> {{ i.item1.type}}: {{ i.item1.name}} Light: {{ i.item1.light}} Gaudy: {{ i.item1.gaudy}}</p>
+<p> {{ i.item2.type}}: {{ i.item2.name}} Light: {{ i.item2.light}} Gaudy: {{ i.item2.gaudy}}</p>
+<p> {{ i.item3.type}}: {{ i.item3.name}} Light: {{ i.item3.light}} Gaudy: {{ i.item3.gaudy}}</p>
+
+
+
+
+{% endfor %} 
+{% endblock %}
