@@ -32,13 +32,18 @@ def stats(request):
 def atmosphere(request):
 	if request.method == 'POST':
 		form = ItemForm(request.POST)
-		itemData = {'type' : request.POST['type'] , 'name' : request.POST['name'], 'bounds' : request.POST['bounds']}
-		centeredItems, currentItem = centered(itemData)
+		if form.is_valid:
+			itemData = {'type' : request.POST['type'] , 'name' : request.POST['name'], 'bounds' : request.POST['bounds']}
+			centeredItems, currentItem = centered(itemData)
+		
 		#take these variables and do something
 		
-		c = RequestContext(request, { 'form': form, 'items' : centeredItems, 'currentItem': currentItem})# template
-		t = loader.get_template("recresponse.html");# context
-		return HttpResponse(t.render(c))
+			c = RequestContext(request, { 'form': form, 'items' : centeredItems, 'currentItem': currentItem})# template
+			t = loader.get_template("recresponse.html");# context
+			return HttpResponse(t.render(c))
+		else:
+			#relative = get_object_or_404(
+			form = ItemForm(inital= {'bounds' : 0})
 	else:
 		form = ItemForm()
 		t = loader.get_template("recettear.html");

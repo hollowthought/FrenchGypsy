@@ -19,6 +19,10 @@ class ItemForm(ModelForm):
 			type = kwargs.pop('user','')
 			super(ItemForm, self).__init__(*args, **kwargs)
 			self.fields['type']=forms.ModelChoiceField(queryset=ItemType.objects.filter(owner=user))	
+def clean(self):
+    bounds = self.cleaned_data.get('bounds')
+    validate_integer(bounds)
+    return self.cleaned_data  	
 '''	
 class ItemForm(forms.Form):
     name = forms.CharField(max_length=100)
